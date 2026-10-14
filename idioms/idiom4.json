@@ -1,0 +1,40 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Which State Spends The Most In Categories",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 400,
+  "data": { "url": "data/chart2.csv" },
+  "mark": { "type": "rect", "stroke": "#ffffff", "strokeWidth": 1 },
+  "encoding": {
+    "x": {
+      "field": "State code",
+      "type": "nominal",
+      "title": "State / Territory"
+    },
+    "y": {
+      "field": "Category",
+      "type": "nominal",
+      "title": "Expenses Category"
+    },
+    "color": {
+      "field": "Spend (AUD m)",
+      "type": "quantitative",
+      "title": "Expenses ($M)",
+      "scale": { "scheme": "viridis" }
+    },
+    "tooltip": [
+      { "field": "State", "type": "nominal" },
+      { "field": "Category", "type": "nominal" },
+      {
+        "field": "Spend (AUD m)",
+        "type": "quantitative",
+        "title": "Spend ($M)",
+        "format": ",.1f"
+      }
+    ]
+  }
+}
