@@ -6,12 +6,12 @@
     "anchor": "start"
   },
   "width": "container",
-  "height": 400,
+  "height": 300,
   "data": { "url": "data/chart2.csv" },
   "mark": { "type": "rect", "stroke": "#ffffff", "strokeWidth": 1 },
   "encoding": {
     "x": {
-      "field": "State code",
+      "field": "Code",
       "type": "nominal",
       "title": "State / Territory"
     },
@@ -24,7 +24,7 @@
       "field": "Spend (AUD m)",
       "type": "quantitative",
       "title": "Expenses ($M)",
-      "scale": { "scheme": "viridis" }
+      "scale": { "scheme": "blues" }
     },
     "tooltip": [
       { "field": "State", "type": "nominal" },

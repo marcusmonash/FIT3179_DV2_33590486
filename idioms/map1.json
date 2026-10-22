@@ -40,11 +40,15 @@
           "field": "Visitors",
           "type": "quantitative",
           "title": "Visitors",
-          "scale": { "range": [2, 7] }
+          "scale": { "range": [1, 6] }
         },
         "tooltip": [
           { "field": "Origin", "type": "nominal", "title": "Origin Country" },
-          { "field": "Destination", "type": "nominal", "title": "Gateway City" },
+          {
+            "field": "Destination",
+            "type": "nominal",
+            "title": "Gateway City"
+          },
           {
             "field": "Visitors",
             "type": "quantitative",

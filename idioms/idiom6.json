@@ -1,0 +1,37 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "10-Year Tourism Expenditure Evolution ($M)",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 380,
+  "data": {"url": "data/idiom6.csv"},
+  "mark": {"type": "area", "interpolate": "monotone"},
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "nominal",
+      "title": "Financial Year"
+    },
+    "y": {
+      "field": "Spend_AUD_M",
+      "type": "quantitative",
+      "stack": "center",
+      "title": "Expenditure Trend ($M)",
+      "axis": null
+    },
+    "color": {
+      "field": "Category",
+      "type": "nominal",
+      "title": "Category",
+      "scale": {"scheme": "tableau10"}
+    },
+    "tooltip": [
+      {"field": "Year", "type": "nominal"},
+      {"field": "Category", "type": "nominal"},
+      {"field": "Spend_AUD_M", "type": "quantitative", "title": "Spend ($M)", "format": ",.1f"}
+    ]
+  }
+}

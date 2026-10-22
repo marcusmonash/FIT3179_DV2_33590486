@@ -1,67 +1,79 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Tourist Spending In Big Cities",
+    "text": "International Visitor Spend by Source Country",
     "fontSize": 16,
     "anchor": "start"
   },
-  "width": 600,
-  "height": 400,
+  "width": "container",
+  "height": 380,
   "projection": {
-    "type": "equirectangular"
+    "type": "equalEarth"
   },
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json",
-        "format": { "type": "json", "property": "features" }
+        "url": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#eef2f5",
-        "stroke": "#ccc",
-        "strokeWidth": 1
+        "fill": "#e2e8f0",
+        "stroke": "#cbd5e1",
+        "strokeWidth": 0.8
       }
     },
     {
       "data": {
-        "url": "data/chart2.csv"
+        "url": "data/map1.csv"
       },
-      "transform": [
-        {
-          "aggregate": [
-            {
-              "op": "sum",
-              "field": "Spend (AUD m)",
-              "as": "Total_Category_Spend"
-            }
-          ],
-          "groupby": ["State", "lat", "lon"]
-        }
-      ],
       "mark": {
         "type": "circle",
-        "color": "#1f77b4",
-        "opacity": 0.75,
-        "stroke": "#111",
+        "opacity": 0.8,
+        "stroke": "#1e293b",
         "strokeWidth": 1
       },
       "encoding": {
-        "longitude": { "field": "lon", "type": "quantitative" },
-        "latitude": { "field": "lat", "type": "quantitative" },
+        "longitude": {
+          "field": "Origin_Lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Origin_Lat",
+          "type": "quantitative"
+        },
         "size": {
-          "field": "Total_Category_Spend",
+          "field": "Spend_AUD_M",
           "type": "quantitative",
-          "title": "Total Expenses ($M)",
-          "scale": { "range": [100, 2500] }
+          "title": "Total Spend ($M AUD)",
+          "scale": {
+            "range": [50, 800]
+          }
+        },
+        "color": {
+          "field": "Spend_AUD_M",
+          "type": "quantitative",
+          "title": "Spend ($M AUD)",
+          "scale": {
+            "scheme": "blues"
+          }
         },
         "tooltip": [
-          { "field": "State", "type": "nominal", "title": "State" },
+          { "field": "Origin", "type": "nominal", "title": "Country" },
           {
-            "field": "Total_Category_Spend",
+            "field": "Spend_AUD_M",
             "type": "quantitative",
-            "title": "Total Expenses ($M)",
-            "format": ",.1f"
+            "title": "Total Spend ($M AUD)",
+            "format": "$,.1f"
+          },
+          {
+            "field": "Visitors",
+            "type": "quantitative",
+            "title": "Total Visitors",
+            "format": ",d"
           }
         ]
       }

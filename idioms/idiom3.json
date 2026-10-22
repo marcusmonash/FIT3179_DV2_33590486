@@ -6,7 +6,7 @@
     "anchor": "start"
   },
   "width": "container",
-  "height": 380,
+  "height": 300,
   "data": { "url": "data/chart2.csv" },
   "transform": [
     {

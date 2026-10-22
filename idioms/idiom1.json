@@ -16,7 +16,11 @@
           "field": "Metric",
           "type": "nominal",
           "title": "Comparison",
-          "scale": { "padding": 0.3 }
+          "scale": { "padding": 0.3 },
+          "axis": {
+            "labelAngle": 0,
+            "titlePadding": 10
+          }
         },
         "y": {
           "field": "Value",
@@ -28,7 +32,7 @@
           "field": "Reason",
           "type": "nominal",
           "title": "Visit Category",
-          "scale": { "scheme": "category10" }
+          "scale": { "scheme": "tableau10" }
         }
       }
     },
@@ -45,7 +49,7 @@
         "tooltip": [
           { "field": "Reason", "type": "nominal", "title": "Purpose" },
           { "field": "Metric", "type": "nominal" },
-          { "field": "Formatted_Value", "type": "nominal", "title": "Value" }
+          { "field": "Type_Value", "type": "nominal", "title": "Value" }
         ]
       }
     }

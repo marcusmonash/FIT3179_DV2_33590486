@@ -6,7 +6,7 @@
     "anchor": "start"
   },
   "width": "container",
-  "height": 380,
+  "height": 400,
   "data": { "url": "data/idiom5.csv" },
   "mark": "bar",
   "encoding": {

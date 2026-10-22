@@ -22,7 +22,7 @@
           "from": {
             "data": { "url": "data/map2.csv" },
             "key": "State",
-            "fields": ["Spend (AUD m)", "State code"]
+            "fields": ["Spend (AUD m)", "Code"]
           }
         }
       ],

@@ -41,7 +41,7 @@
           "field": "Category",
           "type": "nominal",
           "title": "Transit Type",
-          "scale": { "scheme": "set2" }
+          "scale": { "scheme": "tableau10" }
         },
         "tooltip": [
           { "field": "Mode", "type": "nominal", "title": "Mode" },
