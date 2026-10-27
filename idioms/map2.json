@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Total Tourist Spending By State",
+    "text": "Total Tourist Spending By State (2024-2025)",
     "fontSize": 16,
     "anchor": "start"
   },
@@ -31,7 +31,7 @@
         "color": {
           "field": "Spend (AUD m)",
           "type": "quantitative",
-          "title": "Expenses ($M)",
+          "title": "Spending ($M AUD)",
           "scale": { "scheme": "blues" }
         },
         "tooltip": [
@@ -43,8 +43,8 @@
           {
             "field": "Spend (AUD m)",
             "type": "quantitative",
-            "title": "Expenses ($M)",
-            "format": ",.1f"
+            "title": "Spending ($M AUD)",
+            "format": ",.2f"
           }
         ]
       }

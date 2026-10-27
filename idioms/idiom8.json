@@ -1,0 +1,77 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "How Different Tourists Spend Their Money (2024–2025)",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 380,
+  "data": { "url": "data/idiom8.csv" },
+  "layer": [
+    {
+      "mark": { "type": "rule", "color": "#e2e8f0", "strokeWidth": 1.5 },
+      "encoding": {
+        "y": {
+          "field": "Category",
+          "type": "nominal",
+          "title": "Spending Category"
+        }
+      }
+    },
+    {
+      "mark": { "type": "point", "size": 120, "filled": true, "opacity": 0.9 },
+      "encoding": {
+        "y": {
+          "field": "Category",
+          "type": "nominal",
+          "title": "Spending Category",
+          "sort": "-x"
+        },
+        "x": {
+          "field": "Spend_Share_Pct",
+          "type": "quantitative",
+          "title": "Percentage of Spending Budget (%)",
+          "scale": { "zero": true, "domain": [0, 50] },
+          "axis": { "format": ".0f" }
+        },
+        "color": {
+          "field": "Persona",
+          "type": "nominal",
+          "title": "Traveler Category",
+          "scale": {
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#56B4E9",
+              "#D55E00",
+              "#009E73",
+              "#CC79A7"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Persona",
+            "type": "nominal",
+            "title": "Traveler Category"
+          },
+          {
+            "field": "Category",
+            "type": "nominal",
+            "title": "Spending Category"
+          },
+          {
+            "field": "Spend_Share_Pct",
+            "type": "quantitative",
+            "title": "Spending Budget (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": "transparent" }
+  }
+}

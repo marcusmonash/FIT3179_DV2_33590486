@@ -1,12 +1,12 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "International Visitor Spend by Source Country",
+    "text": "International Visitor Spending by Origin Country (2025)",
     "fontSize": 16,
     "anchor": "start"
   },
   "width": "container",
-  "height": 380,
+  "height": 360,
   "projection": {
     "type": "equalEarth"
   },
@@ -48,7 +48,7 @@
         "size": {
           "field": "Spend_AUD_M",
           "type": "quantitative",
-          "title": "Total Spend ($M AUD)",
+          "title": "Total Spending ($M AUD)",
           "scale": {
             "range": [50, 800]
           }
@@ -56,7 +56,6 @@
         "color": {
           "field": "Spend_AUD_M",
           "type": "quantitative",
-          "title": "Spend ($M AUD)",
           "scale": {
             "scheme": "blues"
           }
@@ -66,14 +65,8 @@
           {
             "field": "Spend_AUD_M",
             "type": "quantitative",
-            "title": "Total Spend ($M AUD)",
+            "title": "Total Spending ($M AUD)",
             "format": "$,.1f"
-          },
-          {
-            "field": "Visitors",
-            "type": "quantitative",
-            "title": "Total Visitors",
-            "format": ",d"
           }
         ]
       }

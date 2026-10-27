@@ -1,42 +1,78 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Domestic vs International Spending",
+    "text": "Domestic vs International Spending (2024–2025)",
     "fontSize": 16,
     "anchor": "start"
   },
   "width": "container",
   "height": 400,
   "data": { "url": "data/idiom5.csv" },
-  "mark": "bar",
-  "encoding": {
-    "y": {
-      "field": "Category",
-      "type": "nominal",
-      "title": "Expenses Category"
+  "transform": [
+    {
+      "joinaggregate": [
+        { "op": "sum", "field": "Spend_AUD_M", "as": "Category_Total" }
+      ],
+      "groupby": ["Category"]
     },
-    "x": {
-      "field": "Spend_AUD_M",
-      "type": "quantitative",
-      "stack": "normalize",
-      "title": "Percentage (%)",
-      "axis": { "format": "%" }
-    },
-    "color": {
-      "field": "Visitor_Type",
-      "type": "nominal",
-      "title": "Visitor Type",
-      "scale": { "range": ["#1f77b4", "#ff7f0e"] }
-    },
-    "tooltip": [
-      { "field": "Visitor_Type", "type": "nominal", "title": "Type" },
-      { "field": "Category", "type": "nominal" },
-      {
-        "field": "Spend_AUD_M",
-        "type": "quantitative",
-        "title": "Spend ($M)",
-        "format": ",.1f"
+    {
+      "calculate": "datum.Spend_AUD_M / datum.Category_Total",
+      "as": "Spend_Percentage"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 30,
+        "stroke": "#ffffff",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "theta": {
+          "field": "Category",
+          "type": "nominal"
+        },
+        "radius": {
+          "field": "Spend_AUD_M",
+          "type": "quantitative",
+          "stack": "normalize",
+          "scale": { "type": "linear", "zero": true, "rangeMin": 30 }
+        },
+        "color": {
+          "field": "Visitor_Category",
+          "type": "nominal",
+          "title": "Visitor Category",
+          "scale": {
+            "domain": ["Domestic Visitors", "International Visitors"],
+            "range": ["#0072B2", "#E69F00"]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Visitor_Category",
+            "type": "nominal",
+            "title": "Visitor Category"
+          },
+          {
+            "field": "Category",
+            "type": "nominal",
+            "title": "Spending Category"
+          },
+          {
+            "field": "Spend_AUD_M",
+            "type": "quantitative",
+            "title": "Spending ($M AUD)",
+            "format": "$,.0f"
+          },
+          {
+            "field": "Spend_Percentage",
+            "type": "quantitative",
+            "title": "Percentage Allocation (%)",
+            "format": ".0%"
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Where International Tourists Come From?",
+    "text": "Where International Tourists Come From? (2025)",
     "fontSize": 16,
     "anchor": "start"
   },
@@ -39,7 +39,7 @@
         "strokeWidth": {
           "field": "Visitors",
           "type": "quantitative",
-          "title": "Visitors",
+          "title": "Visitor Count",
           "scale": { "range": [1, 6] }
         },
         "tooltip": [
@@ -47,12 +47,12 @@
           {
             "field": "Destination",
             "type": "nominal",
-            "title": "Gateway City"
+            "title": "Destination City"
           },
           {
             "field": "Visitors",
             "type": "quantitative",
-            "title": "Visitors",
+            "title": "Visitor Count",
             "format": ",d"
           }
         ]
@@ -66,6 +66,21 @@
         "latitude": { "field": "Origin_Lat", "type": "quantitative" },
         "tooltip": [
           { "field": "Origin", "type": "nominal", "title": "Origin Country" }
+        ]
+      }
+    },
+    {
+      "data": { "url": "data/map1.csv" },
+      "mark": { "type": "circle", "color": "#1f77b4", "size": 50 },
+      "encoding": {
+        "longitude": { "field": "Destination_Lon", "type": "quantitative" },
+        "latitude": { "field": "Destination_Lat", "type": "quantitative" },
+        "tooltip": [
+          {
+            "field": "Destination",
+            "type": "nominal",
+            "title": "Destination City"
+          }
         ]
       }
     }

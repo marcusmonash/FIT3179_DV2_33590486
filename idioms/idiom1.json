@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "How Long People Stay Vs Their Spendings",
+    "text": "How Long People Stay Vs Their Spendings (2025-2026)",
     "fontSize": 16,
     "anchor": "start"
   },
@@ -10,7 +10,7 @@
   "data": { "url": "data/idiom1.csv" },
   "layer": [
     {
-      "mark": { "type": "line", "strokeWidth": 3 },
+      "mark": { "type": "line", "strokeWidth": 2 },
       "encoding": {
         "x": {
           "field": "Metric",
@@ -31,8 +31,17 @@
         "color": {
           "field": "Reason",
           "type": "nominal",
-          "title": "Visit Category",
-          "scale": { "scheme": "tableau10" }
+          "title": "Visitor Category",
+          "scale": {
+            "range": [
+              "#0072B2",
+              "#E69F00",
+              "#56B4E9",
+              "#D55E00",
+              "#009E73",
+              "#CC79A7"
+            ]
+          }
         }
       }
     },
@@ -47,9 +56,14 @@
         },
         "color": { "field": "Reason", "type": "nominal" },
         "tooltip": [
-          { "field": "Reason", "type": "nominal", "title": "Purpose" },
+          { "field": "Reason", "type": "nominal", "title": "Visitor Category" },
           { "field": "Metric", "type": "nominal" },
-          { "field": "Type_Value", "type": "nominal", "title": "Value" }
+          {
+            "field": "Value",
+            "type": "quantitative",
+            "title": "Value",
+            "format": ",.0f"
+          }
         ]
       }
     }

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "State Economic Output vs. Local Job Creation (2023–2024)",
+    "fontSize": 16,
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 400,
+  "data": { "url": "data/idiom7.csv" },
+  "transform": [
+    { "calculate": "-datum.Gross_Value_Billions", "as": "GVA_Negative" }
+  ],
+  "spacing": 10,
+  "hconcat": [
+    {
+      "title": "Gross Value Added ($B AUD)",
+      "width": 240,
+      "mark": { "type": "bar", "color": "#1f77b4" },
+      "encoding": {
+        "y": {
+          "field": "State",
+          "type": "nominal",
+          "axis": null,
+          "sort": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"]
+        },
+        "x": {
+          "field": "GVA_Negative",
+          "type": "quantitative",
+          "title": "GVA ($B AUD)",
+          "axis": { "format": ".0f", "labelExpr": "abs(datum.value)" }
+        },
+        "tooltip": [
+          { "field": "State", "type": "nominal" },
+          {
+            "field": "Gross_Value_Billions",
+            "type": "quantitative",
+            "title": "GVA ($B)",
+            "format": "$,.2f"
+          }
+        ]
+      }
+    },
+    {
+      "width": 30,
+      "view": { "stroke": null },
+      "mark": { "type": "text", "align": "center", "fontWeight": "bold" },
+      "encoding": {
+        "y": {
+          "field": "State",
+          "type": "nominal",
+          "axis": null,
+          "sort": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"]
+        },
+        "text": { "field": "State", "type": "nominal" }
+      }
+    },
+    {
+      "title": "Jobs Created ('000s)",
+      "width": 240,
+      "mark": { "type": "bar", "color": "#ff7f0e" },
+      "encoding": {
+        "y": {
+          "field": "State",
+          "type": "nominal",
+          "axis": null,
+          "sort": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"]
+        },
+        "x": {
+          "field": "Employment_Thousand",
+          "type": "quantitative",
+          "title": "Jobs Created ('000s)"
+        },
+        "tooltip": [
+          { "field": "State", "type": "nominal" },
+          {
+            "field": "Employment_Thousand",
+            "type": "quantitative",
+            "title": "Jobs Created ('000s)",
+            "format": ",.2f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": "transparent" }
+  }
+}

@@ -1,0 +1,16 @@
+Persona,Category,Spend_Share_Pct
+Holidaymaker,Accommodation,28.5
+Holidaymaker,Dining Out,26.0
+Holidaymaker,Transport,18.0
+Holidaymaker,Shopping,15.5
+Holidaymaker,Entertainment,12.0
+Business Traveler,Accommodation,42.0
+Business Traveler,Dining Out,22.0
+Business Traveler,Transport,24.0
+Business Traveler,Shopping,7.0
+Business Traveler,Entertainment,5.0
+VFR Visitor,Accommodation,8.0
+VFR Visitor,Dining Out,28.0
+VFR Visitor,Transport,19.0
+VFR Visitor,Shopping,32.0
+VFR Visitor,Entertainment,13.0
